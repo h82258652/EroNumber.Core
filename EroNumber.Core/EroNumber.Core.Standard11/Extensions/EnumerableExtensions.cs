@@ -19,5 +19,19 @@ namespace EroNumber.Extensions
                 yield return i;
             }
         }
+
+        public static IEnumerable<BigInteger> Range(BigInteger start, BigInteger count)
+        {
+            var max = start + count - 1;
+            if (count < 0 || max > long.MaxValue)
+            {
+                throw new ArgumentOutOfRangeException(nameof(count));
+            }
+
+            for (var i = start; i < start + count; i++)
+            {
+                yield return i;
+            }
+        }
     }
 }
